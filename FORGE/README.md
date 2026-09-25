@@ -64,7 +64,9 @@ Smart Case Search is intentionally deterministic and read-only. It returns typed
 
 See also:
 
-- [STRUCTURE.md](STRUCTURE.md)
-- [ROADMAP.md](ROADMAP.md)
+- [ARCHITECTURE.md](ARCHITECTURE.md) — deeper system architecture and layer boundaries
+- [DETAILS.md](DETAILS.md) — compact implementation-oriented notes
+- [STRUCTURE.md](STRUCTURE.md) — repository shape
+- [ROADMAP.md](ROADMAP.md) — current direction and maturity
 
 The most interesting engineering questions are provenance preservation, epistemic separation, local-AI validation, portability and contract-first integration.
