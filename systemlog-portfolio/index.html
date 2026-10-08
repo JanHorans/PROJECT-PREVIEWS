@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0d12">
+  <meta name="description" content="Profesní profil — infrastruktura, bezpečnost, automatizace a AI-native systémová architektura. Od MikroTiku po vlastní systémy.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SystemLog — Od sítí k systémové architektuře">
+  <meta property="og:description" content="Profesní cesta a vybrané technické projekty. Infrastruktura × bezpečnost × automatizace × AI.">
+  <title>SystemLog — Jan H. | Systémy, které drží pohromadě</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0d12; --bg-alt:#0d1118; --panel:#111720; --panel-hi:#151d29;
+      --ink:#f5f6f3; --muted:#9ca9b6; --dim:#738291; --line:rgba(183,204,219,.13);
+      --accent:#c5ff73; --blue:#9ec6ff; --orange:#f6c692;
+      --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      --wide:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E");z-index:20}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer}
+    ::selection{background:var(--accent);color:#101510}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .container{width:min(calc(100% - 72px),var(--wide));margin-inline:auto}
+    .skip{position:absolute;top:-100px;left:16px;background:var(--accent);color:#101510;padding:10px 16px;z-index:200}
+    .skip:focus{top:12px}
+    .header{height:80px;position:sticky;top:0;z-index:50;background:rgba(10,13,18,.82);border-bottom:1px solid var(--line);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand-icon{display:grid;place-items:center;width:37px;height:37px;border:1px solid rgba(197,255,115,.5);border-radius:9px;background:rgba(197,255,115,.06)}
+    .brand-icon svg{width:22px;height:22px}
+    .brand-name{font-family:var(--mono);font-size:13px;font-weight:750;letter-spacing:.12em}
+    .brand-name span{color:var(--accent)}
+    .nav{display:flex;align-items:center;gap:33px}
+    .nav a{font-size:13px;color:#c5ccd4;transition:color .2s}
+    .nav a:hover,.nav a[aria-current="true"]{color:var(--accent)}
+    .nav-github{display:inline-flex;align-items:center;gap:9px;border:1px solid #66717d;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:650;white-space:nowrap;transition:background .2s,border-color .2s}
+    .nav-github:hover{border-color:var(--accent);background:rgba(197,255,115,.08)}
+    .menu-btn{display:none;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:9px;padding:7px 11px}
+    .eyebrow{display:flex;align-items:center;gap:12px;font:600 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+    .eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+    .hero{position:relative;min-height:720px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 740px 570px at 82% 45%,rgba(67,100,111,.14),transparent 70%),radial-gradient(ellipse 700px 500px at 0 0,rgba(34,64,86,.13),transparent 70%);pointer-events:none}
+    .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,rgba(135,163,184,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(135,163,184,.035) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(90deg,transparent 30%,black 100%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:2%;padding-top:90px;padding-bottom:118px}
+    .micro-row{display:flex;gap:15px;align-items:center;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#bac7cf;margin-bottom:32px}
+    .live-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px rgba(197,255,115,.5)}
+    .micro-row .dash{height:1px;width:29px;background:#63717b}
+    .hero h1{font-size:clamp(54px,6.2vw,93px);line-height:1.025;letter-spacing:-.067em;font-weight:720;margin:0 0 31px;max-width:800px}
+    .hero h1 em{font-style:normal;color:var(--accent)}
+    .hero-desc{max-width:535px;color:#bbc5ce;font-size:18px;line-height:1.75;margin:0 0 35px}
+    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:12px;min-height:47px;padding:0 20px;border-radius:6px;font-size:13px;font-weight:720;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{color:#12200a;background:var(--accent)}
+    .btn-primary:hover{background:#d4ff9f}
+    .btn-secondary{border-color:#4b5969;color:#e2e7eb;background:rgba(255,255,255,.015)}
+    .btn-secondary:hover{border-color:#8997a5;background:rgba(255,255,255,.06)}
+    .hero-note{font:11px/1.6 var(--mono);color:#83919d;margin-top:35px;letter-spacing:.02em}
+    .hero-note span{color:var(--accent)}
+    .visual{height:500px;position:relative;display:grid;place-items:center;isolation:isolate}
+    .visual-ring{position:absolute;width:430px;height:430px;border:1px solid rgba(132,158,179,.12);border-radius:50%;box-shadow:inset 0 0 100px rgba(125,166,180,.018)}
+    .visual-ring.r2{width:305px;height:305px;border-color:rgba(139,169,187,.19)}
+    .visual-ring.r3{width:560px;height:560px;border-color:rgba(139,169,187,.07)}
+    .visual-ring::after{content:"";position:absolute;inset:-2px;border-radius:50%;border-top:1px solid rgba(197,255,115,.4);transform:rotate(-45deg)}
+    .network{width:min(560px,115%);max-height:100%;overflow:visible;filter:drop-shadow(0 0 26px rgba(197,255,115,.04))}
+    .network .edge{stroke:#7090a3;stroke-width:1;opacity:.46;stroke-dasharray:4 7}
+    .network .edge.green{stroke:var(--accent);opacity:.55}
+    .network .node{fill:#151d27;stroke:#638094;stroke-width:1.3}
+    .network .node.main{fill:#1b2921;stroke:var(--accent);stroke-width:1.7}
+    .network .node.blue{stroke:#93bafa}
+    .network .pin{fill:var(--accent)}
+    .network .pin.blue{fill:var(--blue)}
+    .network text{font:600 10px var(--mono);fill:#c4d1da;letter-spacing:1.2px}
+    .network .tiny{font-size:8px;fill:#849aa8;letter-spacing:.8px}
+    .float-label{position:absolute;font:600 10px/1.6 var(--mono);letter-spacing:.09em;color:#b9cad6;white-space:nowrap;pointer-events:none}
+    .float-label::before{content:"+";color:var(--accent);margin-right:9px}
+    .fl1{top:36px;right:2px}.fl2{bottom:55px;right:-3px}.fl3{bottom:88px;left:20px}
+    .hero-bottom{position:absolute;bottom:0;width:100%;z-index:3}
+    .hero-bottom-inner{display:flex;align-items:center;justify-content:space-between;padding-bottom:29px;color:#778895;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .scroll-mark{display:flex;align-items:center;gap:12px}.scroll-mark span{display:block;height:1px;width:54px;background:#8194a2}
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+    .principle{padding:42px 43px 42px 0;display:flex;gap:19px;align-items:flex-start}
+    .principle+.principle{padding-left:42px;border-left:1px solid var(--line)}
+    .principle svg{width:25px;height:25px;flex:0 0 auto;color:var(--accent);margin-top:2px}
+    .principle h3{font-size:14px;margin:0 0 5px;letter-spacing:-.01em}
+    .principle p{color:#8e9fab;font-size:13px;line-height:1.6;margin:0}
+    section{scroll-margin-top:80px}
+    .section{padding:132px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:59px}
+    .section-head h2{font-size:clamp(38px,4.35vw,64px);line-height:1.12;letter-spacing:-.055em;margin:17px 0 0;max-width:740px;font-weight:720}
+    .section-sub{max-width:330px;font-size:14px;color:#8e9fab;line-height:1.8;margin:0 0 5px}
+    .intro{background:var(--bg-alt)}
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:start}
+    .intro-lead{font-size:clamp(23px,2.5vw,35px);line-height:1.52;letter-spacing:-.035em;margin:0}
+    .intro-lead strong{color:var(--accent);font-weight:650}
+    .intro-right p{margin:0 0 19px;color:#aab9c5;font-size:16px;line-height:1.85}
+    .technologies{display:flex;flex-wrap:wrap;gap:8px;margin-top:38px}
+    .tech{border:1px solid rgba(161,185,201,.18);border-radius:5px;padding:7px 10px;font:11px/1.4 var(--mono);color:#b4c3cd;background:rgba(255,255,255,.018)}
+    .timeline{position:relative;border-top:1px solid var(--line)}
+    .timeline::before{content:"";position:absolute;top:0;bottom:0;left:70px;width:1px;background:linear-gradient(var(--accent),rgba(132,158,179,.18) 80%,transparent)}
+    .phase{display:grid;grid-template-columns:70px 1fr;gap:35px;padding:39px 0;border-bottom:1px solid var(--line);position:relative}
+    .phase-index{position:relative;padding-top:5px;color:var(--accent);font:12px var(--mono);letter-spacing:.1em}
+    .phase-index::after{content:"";position:absolute;top:11px;right:-5px;background:var(--bg);border:1px solid var(--accent);height:9px;width:9px;border-radius:50%;z-index:2}
+    .phase-content{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:start}
+    .phase-title{font-size:clamp(23px,2.7vw,35px);letter-spacing:-.04em;line-height:1.2;margin:0 0 10px}
+    .phase-kicker{font:600 10px var(--mono);letter-spacing:.17em;color:#7f99a8;text-transform:uppercase}
+    .phase-content p{margin:0;line-height:1.8;font-size:15px;color:#a9b7c3}
+    .phase-tags{margin-top:19px;display:flex;flex-wrap:wrap;gap:8px}
+    .phase-tags span{color:#a3b4c0;font:10px var(--mono);padding:5px 8px;border:1px solid var(--line);border-radius:3px}
+    .projects{background:var(--bg-alt)}
+    .project-filter{display:flex;gap:6px;flex-wrap:wrap;margin:-22px 0 34px}
+    .filter{padding:9px 15px;border:1px solid #354251;color:#9eafbd;background:transparent;border-radius:6px;font:12px var(--mono);transition:.2s}
+    .filter.active,.filter:hover{color:#0e1510;background:var(--accent);border-color:var(--accent)}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .project{background:linear-gradient(145deg,#141b25,#101720);min-height:312px;border:1px solid rgba(177,200,217,.14);padding:29px 31px 27px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+    .project:hover{border-color:rgba(197,255,115,.46);transform:translateY(-3px)}
+    .project::after{content:"";position:absolute;right:-83px;top:-97px;height:240px;width:240px;border:1px solid rgba(191,214,229,.08);border-radius:50%;box-shadow:0 0 0 43px rgba(182,206,220,.016),0 0 0 91px rgba(182,206,220,.014);pointer-events:none}
+    .project[hidden]{display:none}
+    .project-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:40px;position:relative;z-index:1}
+    .project-id{font:11px var(--mono);color:#879bab;letter-spacing:.09em}
+    .project-status{display:flex;gap:7px;align-items:center;border:1px solid rgba(150,176,193,.19);border-radius:999px;padding:4px 9px;color:#9dabb6;font:10px var(--mono)}
+    .project-status::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+    .project-status.sandbox::before{background:var(--orange)}
+    .project h3{font-size:30px;letter-spacing:-.045em;line-height:1.2;margin:0 0 10px;position:relative;z-index:1}
+    .project p{margin:0;max-width:465px;font-size:14px;line-height:1.75;color:#acbbc6;position:relative;z-index:1}
+    .project-foot{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:auto;padding-top:29px;position:relative;z-index:1}
+    .project-tags{display:flex;gap:7px;flex-wrap:wrap}
+    .project-tags span{font:10px var(--mono);color:#92a5b4;border:1px solid #2e3b49;padding:5px 8px;border-radius:3px}
+    .project-arrow{font-size:20px;color:var(--accent)}
+    .approach{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .approach article{min-height:285px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px}
+    .approach .n{color:var(--accent);font:12px var(--mono)}
+    .approach h3{margin:50px 0 12px;font-size:26px;font-weight:620;letter-spacing:-.04em}
+    .approach p{font-size:14px;line-height:1.75;color:#a3b4c0;margin:0}
+    .endcap{position:relative;background:radial-gradient(ellipse 60% 100% at 90% 50%,rgba(116,163,99,.08),transparent),#111820;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+    .endcap-inner{padding:110px 0 105px;display:grid;grid-template-columns:1.35fr .65fr;gap:50px;align-items:end}
+    .endcap h2{font-size:clamp(42px,5.2vw,78px);line-height:1.06;letter-spacing:-.06em;max-width:760px;margin:20px 0 27px}
+    .endcap h2 span{color:var(--accent)}
+    .endcap p{max-width:650px;color:#b7c4ce;margin:0;font-size:16px;line-height:1.8}
+    .contact-stack{display:flex;flex-direction:column;gap:13px;align-items:stretch}
+    .contact-stack .btn{width:100%}
+    .contact-note{color:#8295a3;font:11px/1.6 var(--mono);text-align:center;margin:8px 0 0}
+    .footer{display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:32px 0;color:#8494a1;font:11px/1.6 var(--mono)}
+    .footer strong{color:#d6e2e9;letter-spacing:.09em}
+    .footer a:hover{color:var(--accent)}
+    .appear{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s}
+    .appear.in{opacity:1;transform:none}
+    @media(max-width:1050px){.container{width:min(calc(100% - 48px),var(--wide))}.hero h1{font-size:68px}.visual{transform:scale(.84);transform-origin:center}.hero-inner{gap:0}.fl2{right:-20px}.principle{padding:33px 23px 33px 0}.principle+.principle{padding-left:23px}.section{padding:100px 0}}
+    @media(max-width:760px){.header{height:69px}.container{width:calc(100% - 36px)}.menu-btn{display:block}.nav-github{margin-left:auto}.nav{position:absolute;top:69px;right:0;left:0;padding:20px 24px 25px;background:#0e131b;border-bottom:1px solid var(--line);display:none;flex-direction:column;align-items:flex-start;gap:17px}.nav.open{display:flex}.hero{min-height:unset}.hero-inner{display:flex;flex-direction:column;align-items:start;padding:75px 0 100px}.hero h1{font-size:clamp(52px,11vw,75px);max-width:670px}.hero-desc{font-size:16px}.visual{width:100%;height:385px;transform:scale(.86);margin:20px 0 -32px}.visual-ring.r3{display:none}.hero-bottom-inner{padding-bottom:23px}.principles{grid-template-columns:1fr}.principle,.principle+.principle{padding:24px 0;border-left:0}.principle+.principle{border-top:1px solid var(--line)}.section-head{display:block}.section-sub{margin:24px 0 0}.intro-grid{grid-template-columns:1fr;gap:35px}.phase-content{grid-template-columns:1fr;gap:14px}.phase{gap:22px;grid-template-columns:38px 1fr}.timeline::before{left:38px}.project-grid{grid-template-columns:1fr}.approach{grid-template-columns:1fr}.approach article{min-height:unset}.approach h3{margin-top:23px}.endcap-inner{grid-template-columns:1fr;gap:35px}.contact-stack{max-width:320px}.footer{align-items:start;flex-direction:column}.fl1,.fl2,.fl3{font-size:9px}}
+    @media(max-width:430px){.header-inner{gap:10px}.brand{gap:7px}.brand-icon{width:32px;height:32px}.profile-suffix{display:none}.brand-name{font-size:11px}.nav-github{font-size:11px;padding:9px 10px}.hero h1{font-size:53px}.micro-row{gap:9px;font-size:10px}.visual{height:300px;transform:scale(.73);margin:0 0 -25px}.hero-inner{padding-bottom:84px}.hero-bottom-inner{font-size:9px}.float-label{display:none}.section{padding:75px 0}.section-head h2{font-size:39px}.project{padding:24px}.project h3{font-size:27px}.endcap-inner{padding:76px 0}.endcap h2{font-size:43px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.appear{opacity:1;transform:none}}
+    @media print{html,body{color:#111;background:white!important}.header,.hero-bottom,.hero .visual,.hero-actions,.project-filter,.contact-stack,.skip{display:none!important}body::before{display:none}.hero{min-height:0;padding:12px 0}.hero-inner{display:block;padding:25px 0}.hero h1{color:#111;font-size:38px}.hero h1 em,.section .eyebrow,.eyebrow,.phase-index,.approach .n,.endcap h2 span{color:#3d6511}.hero-desc,.intro-right p,.phase-content p,.project p,.approach p,.endcap p{color:#333}.section,.endcap-inner{padding:28px 0}.section-head{margin:0 0 20px}.section-head h2{font-size:27px}.section-sub{display:none}.principles{display:none}.phase{padding:15px 0;break-inside:avoid}.timeline::before,.phase-index::after{display:none}.phase-content{gap:12px}.phase-title{font-size:20px}.project-grid{grid-template-columns:1fr 1fr}.project{background:#fafafa!important;min-height:0;padding:15px;break-inside:avoid}.project h3{font-size:22px;color:#111}.project-top{margin-bottom:10px}.project-tags,.project-arrow{display:none}.project[hidden]{display:flex}.approach article{min-height:0;padding:18px}.approach h3{margin:10px 0;font-size:18px}.endcap{background:#fafafa!important}.endcap h2{font-size:28px}.appear{opacity:1;transform:none}a{color:inherit} }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#obsah">Přejít na obsah</a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#uvod" aria-label="SystemLog, úvod">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6h6v6H5zM13 12h6v6h-6zM8 12v5h5M11 9h5v3" stroke="#c5ff73" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+        <span class="brand-name">SYSTEM<span>LOG</span><span class="profile-suffix"><span style="color:#596674"> / </span>PROFILE</span></span>
+      </a>
+      <nav class="nav" id="main-nav" aria-label="Hlavní navigace">
+        <a href="#o-mne">O mně</a><a href="#cesta">Moje cesta</a><a href="#projekty">Projekty</a><a href="#pristup">Přístup</a>
+      </nav>
+      <a class="nav-github" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+      <button class="menu-btn" id="menu-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Otevřít navigaci">☰</button>
+    </div>
+  </header>
+  <main id="obsah">
+    <section class="hero" id="uvod">
+      <div class="container hero-inner">
+        <div class="hero-copy appear">
+          <div class="micro-row"><span class="live-dot" aria-hidden="true"></span><span>TECHNOLOGY / SYSTEMS / HUMAN</span><span class="dash"></span><span>2026</span></div>
+          <h1>Od sítí<br>k systémům.<br><em>A dál.</em></h1>
+          <p class="hero-desc">Začalo to MikroTikem a každodenní správou IT. Dnes propojuji infrastrukturu, bezpečnost, automatizaci a AI do systémů, které mají skutečný účel.</p>
+          <div class="hero-actions"><a href="#cesta" class="btn btn-primary">Prozkoumat moji cestu <span aria-hidden="true">↘</span></a><button class="btn btn-secondary" type="button" id="print-cv">Uložit CV jako PDF <span aria-hidden="true">↗</span></button></div>
+          <div class="hero-note"><span>●</span> IT INFRASTRUCTURE &nbsp; / &nbsp; SECURITY &nbsp; / &nbsp; AI SYSTEMS</div>
+        </div>
+        <div class="visual" aria-label="Ilustrace propojení sítí, infrastruktury, bezpečnosti, automatizace a AI" role="img">
+          <div class="visual-ring r3"></div><div class="visual-ring"></div><div class="visual-ring r2"></div>
+          <svg class="network" viewBox="0 0 570 530" aria-hidden="true">
+            <path class="edge" d="M285 264 123 140 M285 264 460 115 M285 264 476 351 M285 264 190 434 M285 264 79 319 M123 140 460 115 M79 319 190 434 M460 115 476 351"/>
+            <path class="edge green" d="M123 140 285 264 476 351 M190 434 285 264 460 115"/>
+            <circle cx="285" cy="264" r="91" fill="rgba(197,255,115,.017)" stroke="rgba(197,255,115,.18)" stroke-dasharray="2 9"/>
+            <circle class="node main" cx="285" cy="264" r="63"/><circle cx="285" cy="264" r="53" fill="none" stroke="rgba(197,255,115,.13)"/>
+            <path d="M267 255h36m-36 9h36m-36 9h25" stroke="#c5ff73" stroke-width="2" stroke-linecap="round"/><text x="285" y="290" text-anchor="middle" style="font-size:11px;fill:#c5ff73">SYSTEMS</text>
+            <circle class="node" cx="123" cy="140" r="43"/><circle class="pin" cx="123" cy="110" r="3"/><text x="123" y="138" text-anchor="middle">NETWORK</text><text class="tiny" x="123" y="154" text-anchor="middle">MIKROTIK</text>
+            <circle class="node blue" cx="460" cy="115" r="47"/><circle class="pin blue" cx="460" cy="83" r="3"/><text x="460" y="113" text-anchor="middle">PLATFORM</text><text class="tiny" x="460" y="129" text-anchor="middle">LINUX / VMS</text>
+            <circle class="node" cx="476" cy="351" r="46"/><circle class="pin" cx="476" cy="317" r="3"/><text x="476" y="348" text-anchor="middle">AUTOMATE</text><text class="tiny" x="476" y="364" text-anchor="middle">OPERATIONS</text>
+            <circle class="node blue" cx="190" cy="434" r="44"/><circle class="pin blue" cx="190" cy="402" r="3"/><text x="190" y="432" text-anchor="middle">SECURITY</text><text class="tiny" x="190" y="448" text-anchor="middle">EVIDENCE</text>
+            <circle class="node main" cx="79" cy="319" r="40"/><text x="79" y="318" text-anchor="middle">LOCAL AI</text><text class="tiny" x="79" y="333" text-anchor="middle">BUILD</text>
+            <circle class="pin" cx="372" cy="196" r="3"/><circle class="pin blue" cx="233" cy="174" r="3"/>
+          </svg>
+          <div class="float-label fl1">REAL SYSTEMS / REAL PROBLEMS</div>
+          <div class="float-label fl2">DESIGN → BUILD → VERIFY</div>
+          <div class="float-label fl3">EVIDENCE FIRST</div>
+        </div>
+      </div>
+      <div class="hero-bottom"><div class="container hero-bottom-inner"><span>NEJDE O SEZNAM TECHNOLOGIÍ. JDE O TO, CO S NIMI POSTAVÍŠ.</span><span class="scroll-mark">SCROLL <span></span></span></div></div>
+    </section>
+    <div class="container principles">
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 2 8 5v10l-8 5-8-5V7l8-5Zm0 8 8-3m-8 3L4 7m8 3v12"/></svg><div><h3>Infrastructure-first</h3><p>Spolehlivý základ, rozumná architektura a dohled nad provozem.</p></div></div>
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 12 2 2 4-4M12 2l9 4v6c0 5-4 8-9 10-5-2-9-5-9-10V6l9-4Z"/></svg><div><h3>Security by design</h3><p>Kontrolovatelné změny, důkazy, izolace a možnost návratu.</p></div></div>
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 3v6m10 6v6M3 9h8l2 6h8M7 9l5 6m0-12v3m0 12v3"/></svg><div><h3>AI as an amplifier</h3><p>AI jako součást řízeného procesu, ne náhrada odpovědnosti.</p></div></div>
+    </div>
+    <section id="o-mne" class="section intro">
+      <div class="container">
+        <div class="section-head appear"><div><div class="eyebrow">01 / PROFIL</div><h2>Technik, který začal<br>myslet v systémech.</h2></div><p class="section-sub">Propojuji provozní zkušenost s vývojem vlastních nástrojů. Od konfigurace jednotlivého zařízení k návrhu celého řešení.</p></div>
+        <div class="intro-grid">
+          <p class="intro-lead appear">Moje práce stojí na jednoduchém principu: <strong>porozumět problému, postavit funkční řešení a umět doložit, že opravdu funguje.</strong></p>
+          <div class="intro-right appear"><p>Pracuji napříč sítěmi, servery, vzdáleným přístupem, bezpečnostní analýzou a automatizací. Vlastní laboratorní prostředí používám k návrhu, testování a provozu praktických systémů.</p><p>V poslední etapě k tomu přidávám AI-native vývoj: propojení modelů, nástrojů, dat, infrastruktury a lidského rozhodování do kontrolovatelných pracovních postupů.</p></div>
+        </div>
+        <div class="technologies appear" aria-label="Používané technologie"><span class="tech">MikroTik / RouterOS</span><span class="tech">Linux</span><span class="tech">Proxmox</span><span class="tech">WireGuard</span><span class="tech">Cloudflare</span><span class="tech">Docker</span><span class="tech">Git / CI</span><span class="tech">Python</span><span class="tech">PowerShell</span><span class="tech">WordPress</span><span class="tech">OSINT</span><span class="tech">Digital Forensics</span><span class="tech">Local LLM</span><span class="tech">AI Automation</span></div>
+      </div>
+    </section>
+    <section id="cesta" class="section">
+      <div class="container">
+        <div class="section-head appear"><div><div class="eyebrow">02 / VÝVOJ KOMPETENCÍ</div><h2>Jedna cesta.<br>Pět vrstev zkušeností.</h2></div><p class="section-sub">Tematická mapa profesního vývoje. Konkrétní roky, zaměstnání a certifikace budou doplněny až po ověření.</p></div>
+        <div class="timeline">
+          <article class="phase appear"><div class="phase-index">01</div><div class="phase-content"><div><div class="phase-kicker">Základ / NETWORKING</div><h3 class="phase-title">Od MikroTiku<br>k celé síti.</h3></div><div><p>Konfigurace síťových prvků se postupně změnila v pohled na infrastrukturu jako celek: routing, firewall, dostupnost, segmentace, vzdálený přístup a provozní diagnostika.</p><div class="phase-tags"><span>RouterOS</span><span>Routing</span><span>Firewall</span><span>VPN</span></div></div></div></article>
+          <article class="phase appear"><div class="phase-index">02</div><div class="phase-content"><div><div class="phase-kicker">Provoz / INFRASTRUCTURE</div><h3 class="phase-title">Od zařízení<br>k platformě.</h3></div><div><p>Servery, virtualizace, kontejnery a služby. Vlastní prostředí HS2/SystemLog jako prostor pro monitoring, zálohování, síťové propojení, bezpečné změny a ověřování obnovy.</p><div class="phase-tags"><span>Linux</span><span>Proxmox</span><span>Docker</span><span>Monitoring</span></div></div></div></article>
+          <article class="phase appear"><div class="phase-index">03</div><div class="phase-content"><div><div class="phase-kicker">Analýza / SECURITY</div><h3 class="phase-title">Od logu<br>k důkazům.</h3></div><div><p>Bezpečnostní analýza, OSINT a digitální forenzika. Důraz na původ dat, opakovatelnost postupu, práci s artefakty a oddělení pozorování od interpretace.</p><div class="phase-tags"><span>OSINT</span><span>Acquisition</span><span>Traceability</span><span>Integrity</span></div></div></div></article>
+          <article class="phase appear"><div class="phase-index">04</div><div class="phase-content"><div><div class="phase-kicker">Inženýrství / AUTOMATION</div><h3 class="phase-title">Od rutiny<br>k automatizaci.</h3></div><div><p>Skriptování, testovací postupy, CI a řízení opakovaných úloh. Cíl: méně ručních zásahů, předvídatelný provoz a přehledný recovery proces — zejména při správě služeb a webů.</p><div class="phase-tags"><span>Python</span><span>PowerShell</span><span>CI</span><span>Backup / Restore</span></div></div></div></article>
+          <article class="phase appear"><div class="phase-index">05</div><div class="phase-content"><div><div class="phase-kicker">Současný směr / AI-NATIVE SYSTEMS</div><h3 class="phase-title">Od nástrojů<br>k architektuře.</h3></div><div><p>Navrhování propojených systémů s AI: lokální modely, orchestrace úloh, analytické pipeline, lidský dohled a integrace se skutečným prostředím. AI urychluje vývoj; odpovědnost za návrh a výsledek zůstává na člověku.</p><div class="phase-tags"><span>Local LLM</span><span>AI Workflows</span><span>Systems Design</span><span>Human-in-the-loop</span></div></div></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="projekty" class="section projects">
+      <div class="container">
+        <div class="section-head appear"><div><div class="eyebrow">03 / VLASTNÍ PROJEKTY</div><h2>Nejen zkušenosti.<br>Skutečná práce.</h2></div><p class="section-sub">Vybrané systémy a vývojové projekty. Uvedený stav rozlišuje reálný provoz a probíhající vývoj.</p></div>
+        <div class="project-filter appear" role="group" aria-label="Filtr projektů"><button class="filter active" data-filter="all" aria-pressed="true">Vše</button><button class="filter" data-filter="infrastructure" aria-pressed="false">Infrastruktura</button><button class="filter" data-filter="security" aria-pressed="false">Bezpečnost</button><button class="filter" data-filter="ai" aria-pressed="false">AI & automatizace</button></div>
+        <div class="project-grid">
+          <article class="project appear" data-categories="infrastructure"><div class="project-top"><span class="project-id">CASE / 001 — OPERATIONS</span><span class="project-status">Vlastní provoz</span></div><h3>SystemLog / HS2</h3><p>Vlastní systémové prostředí: síťové služby, vzdálený přístup, provoz kontejnerových aplikací, monitoring a bezpečné postupy pro změny a zálohy.</p><div class="project-foot"><div class="project-tags"><span>Infrastructure</span><span>Networking</span><span>Operations</span></div></div></article>
+          <article class="project appear" data-categories="security ai"><div class="project-top"><span class="project-id">CASE / 002 — INVESTIGATION</span><span class="project-status sandbox">Fyzická acceptance zbývá</span></div><h3>FORGE</h3><p>Lokální investigativní nástroj s vedeným workflow, důrazem na sběr a integritu artefaktů, reprodukovatelnost a oddělení důkazů od analytických závěrů.</p><div class="project-foot"><div class="project-tags"><span>Digital Forensics</span><span>Evidence</span><span>Local AI</span></div></div></article>
+          <article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 003 — INTELLIGENCE</span><span class="project-status sandbox">Aktivní vývoj</span></div><h3>NORTH STAR</h3><p>Experimentální centrální vrstva pro práci se systémovými daty, interpretaci událostí, lokální AI a koordinaci nástrojů v rámci vlastního prostředí.</p><div class="project-foot"><div class="project-tags"><span>Local-first</span><span>Orchestration</span><span>Observability</span></div></div></article>
+          <article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 004 — WEB AUTOMATION</span><span class="project-status sandbox">Aktivní vývoj</span></div><h3>WEB OPS</h3><p>Směr ke spravované údržbě WordPress instalací: oddělené backupy, kontrolovatelné změny, provozní přehled a postupy obnovy.</p><div class="project-foot"><div class="project-tags"><span>WordPress</span><span>Automation</span><span>Recovery</span></div></div></article>
+          <article class="project appear" data-categories="security infrastructure"><div class="project-top"><span class="project-id">CASE / 005 — FIELD RESEARCH</span><span class="project-status sandbox">Terénní testování</span></div><h3>SHINOBI / MONK</h3><p>Mobilní a lokální sběr telemetrie, read-only přístupy a analytické experimenty. Důraz na oddělení měření, interpretace a případných zásahů.</p><div class="project-foot"><div class="project-tags"><span>Telemetry</span><span>Linux</span><span>Security</span></div></div></article>
+          <article class="project appear" data-categories="ai security"><div class="project-top"><span class="project-id">CASE / 006 — TOOLING</span><span class="project-status sandbox">Vývoj a testování</span></div><h3>FUJIN / RAIJIN</h3><p>Forenzní sběr a analýza systémových artefaktů jako předchůdci současného vývoje FORGE. Od původních dat k dohledatelným pracovním výstupům.</p><div class="project-foot"><div class="project-tags"><span>Collection</span><span>Windows</span><span>Analysis</span></div></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="pristup" class="section">
+      <div class="container"><div class="section-head appear"><div><div class="eyebrow">04 / ZPŮSOB PRÁCE</div><h2>Jak přemýšlím<br>nad technikou.</h2></div><p class="section-sub">Nehledám nejsložitější řešení. Hledám takové, které je použitelné, bezpečné a dá se dlouhodobě udržet.</p></div>
+        <div class="approach"><article class="appear"><span class="n">01 / DESIGN</span><h3>Nejdřív celek.</h3><p>Rozumět problému, hranicím systému a tomu, co má být skutečným výsledkem.</p></article><article class="appear"><span class="n">02 / VERIFY</span><h3>Potom důkazy.</h3><p>Test, log, reprodukovatelný postup, záloha a plán návratu místo předpokladu, že „to asi funguje“.</p></article><article class="appear"><span class="n">03 / IMPROVE</span><h3>Pak teprve škálovat.</h3><p>Automatizovat ověřené procesy a propojovat služby jen tehdy, když to přináší hodnotu.</p></article></div>
+      </div>
+    </section>
+    <section class="endcap" id="kontakt"><div class="container endcap-inner"><div class="appear"><div class="eyebrow">05 / PROFESNÍ SHRNUTÍ</div><h2>IT generalista.<br>System builder.<br><span>AI-native mindset.</span></h2><p>Propojuji praktickou správu infrastruktury, bezpečnostní přístup a vývoj automatizovaných nástrojů. Mým směrem je návrh a provoz srozumitelných, bezpečných systémů, ve kterých AI rozšiřuje lidské možnosti — ne komplikuje provoz.</p></div><div class="contact-stack appear"><a class="btn btn-primary" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">Prohlédnout GitHub <span aria-hidden="true">↗</span></a><button class="btn btn-secondary" type="button" id="print-cv-bottom">Uložit profil jako PDF <span aria-hidden="true">↗</span></button><p class="contact-note">Profesní kontakt a veřejné projekty<br>na mém GitHub profilu.</p></div></div></section>
+  </main>
+  <footer class="container footer"><span><strong>SYSTEMLOG</strong> / PROFESSIONAL PROFILE — 2026</span><span>Konkrétní interní adresy, konfigurace a citlivé detaily nejsou zveřejněny.</span><a href="#uvod">Zpět nahoru ↑</a></footer>
+  <script>
+    (()=>{
+      const nav=document.querySelector('#main-nav'),menu=document.querySelector('#menu-btn');
+      menu?.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(isOpen));menu.setAttribute('aria-label',isOpen?'Zavřít navigaci':'Otevřít navigaci');});
+      nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+      document.querySelectorAll('#print-cv,#print-cv-bottom').forEach(b=>b.addEventListener('click',()=>window.print()));
+      const filters=[...document.querySelectorAll('.filter')],projects=[...document.querySelectorAll('.project')];
+      filters.forEach(button=>button.addEventListener('click',()=>{
+        const target=button.dataset.filter;
+        filters.forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+        projects.forEach(p=>{p.hidden=target!=='all'&&!p.dataset.categories.split(' ').includes(target);});
+      }));
+      if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target);}})},{threshold:.045,rootMargin:'0px 0px -18px 0px'});
+        document.querySelectorAll('.appear').forEach(el=>observer.observe(el));
+      }else{document.querySelectorAll('.appear').forEach(el=>el.classList.add('in'));}
+      const anchors=[...document.querySelectorAll('nav a[href^="#"]')];
+      if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){anchors.forEach(a=>a.removeAttribute('aria-current'));const a=anchors.find(a=>a.getAttribute('href')==='#'+e.target.id);if(a)a.setAttribute('aria-current','true');}}},{rootMargin:'-12% 0px -76% 0px'});document.querySelectorAll('#o-mne,#cesta,#projekty,#pristup').forEach(el=>obs.observe(el));}
+    })();
+  </script>
+</body>
+</html>
