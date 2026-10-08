@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0d12">
-  <meta name="description" content="Profesní profil — infrastruktura, bezpečnost, automatizace a AI-native systémová architektura. Od MikroTiku po vlastní systémy.">
-  <link rel="canonical" href="https://systemlog.icu/">
-  <link rel="alternate" hreflang="cs" href="https://systemlog.icu/">
-  <link rel="alternate" hreflang="en" href="https://systemlog.icu/en/">
-  <link rel="alternate" hreflang="x-default" href="https://systemlog.icu/">
-  <meta property="og:locale" content="cs_CZ">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="SystemLog — Od sítí k systémové architektuře">
-  <meta property="og:description" content="Profesní cesta a vybrané technické projekty. Infrastruktura × bezpečnost × automatizace × AI.">
-  <title>SystemLog — Jan H. | Systémy, které drží pohromadě</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0a0d12" name="theme-color"/>
+<meta content="Profesní portfolio. Praktická infrastruktura, MikroTik, automatizace, WordPress, forenzní nástroje a lokální AI. Build · Connect · Create." name="description"/>
+<link href="https://systemlog.icu/" rel="canonical"/>
+<link href="https://systemlog.icu/" hreflang="cs" rel="alternate"/>
+<link href="https://systemlog.icu/en/" hreflang="en" rel="alternate"/>
+<link href="https://systemlog.icu/" hreflang="x-default" rel="alternate"/>
+<meta content="cs_CZ" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="SystemLog — Stavím věci, které fungují" property="og:title"/>
+<meta content="Profesní portfolio. Praktická infrastruktura, MikroTik, automatizace, WordPress, forenzní nástroje a lokální AI. Build · Connect · Create." property="og:description"/>
+<title>SystemLog — Stavím věci, které fungují</title>
+<style>
     :root {
       color-scheme: dark;
       --bg: #0a0d12; --bg-alt:#0d1118; --panel:#111720; --panel-hi:#151d29;
@@ -171,106 +171,77 @@
     @media(max-width:760px){.lang-switch{margin-left:auto}.nav-github{margin-left:0}}
     @media(max-width:430px){.nav-github{display:none}.lang-switch a{padding:7px 8px}}
     @media print{.lang-switch{display:none!important}}
-  </style>
+  
+    /* SystemLog 1.0: qualifications use existing visual language. */
+    .credentials{background:#0c1219}
+    .credential-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .credential{border:1px solid var(--line);padding:25px 27px;background:linear-gradient(145deg,#121b25,#0e151d);min-height:122px}
+    .credential-source{font:700 10px/1.4 var(--mono);letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+    .credential h3{font-size:17px;font-weight:600;line-height:1.5;margin:15px 0 0;letter-spacing:-.02em}
+    .credential-note{margin:25px 0 0;color:var(--muted);font-size:13px;line-height:1.7;max-width:800px}
+    @media(max-width:760px){.credential-grid{grid-template-columns:1fr}.credential{padding:21px;min-height:0}}
+    @media print{.credentials{background:white!important}.credential{background:white!important;break-inside:avoid;min-height:0;padding:12px}.credential h3{color:#222;font-size:13px;margin:5px 0}.credential-source{color:#416414}.credential-note{color:#333}.credential-grid{gap:5px}}
+</style>
 </head>
 <body>
-  <a class="skip" href="#obsah">Přejít na obsah</a>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="#uvod" aria-label="SystemLog, úvod">
-        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6h6v6H5zM13 12h6v6h-6zM8 12v5h5M11 9h5v3" stroke="#c5ff73" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
-        <span class="brand-name">SYSTEM<span>LOG</span><span class="profile-suffix"><span style="color:#596674"> / </span>PROFILE</span></span>
-      </a>
-      <nav class="nav" id="main-nav" aria-label="Hlavní navigace">
-        <a href="#o-mne">O mně</a><a href="#cesta">Moje cesta</a><a href="#projekty">Projekty</a><a href="#pristup">Přístup</a>
-      </nav>
-      <div class="lang-switch" role="group" aria-label="Výběr jazyka"><a href="/" lang="cs" aria-current="page" title="Čeština">CZ</a><a href="/en/" lang="en" title="English">EN</a></div>
-      <a class="nav-github" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
-      <button class="menu-btn" id="menu-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Otevřít navigaci">☰</button>
-    </div>
-  </header>
-  <main id="obsah">
-    <section class="hero" id="uvod">
-      <div class="container hero-inner">
-        <div class="hero-copy appear">
-          <div class="micro-row"><span class="live-dot" aria-hidden="true"></span><span>TECHNOLOGY / SYSTEMS / HUMAN</span><span class="dash"></span><span>2026</span></div>
-          <h1>Od sítí<br>k systémům.<br><em>A dál.</em></h1>
-          <p class="hero-desc">Začalo to MikroTikem a každodenní správou IT. Dnes propojuji infrastrukturu, bezpečnost, automatizaci a AI do systémů, které mají skutečný účel.</p>
-          <div class="hero-actions"><a href="#cesta" class="btn btn-primary">Prozkoumat moji cestu <span aria-hidden="true">↘</span></a><button class="btn btn-secondary" type="button" id="print-cv">Uložit CV jako PDF <span aria-hidden="true">↗</span></button></div>
-          <div class="hero-note"><span>●</span> IT INFRASTRUCTURE &nbsp; / &nbsp; SECURITY &nbsp; / &nbsp; AI SYSTEMS</div>
-        </div>
-        <div class="visual" aria-label="Ilustrace propojení sítí, infrastruktury, bezpečnosti, automatizace a AI" role="img">
-          <div class="visual-ring r3"></div><div class="visual-ring"></div><div class="visual-ring r2"></div>
-          <svg class="network" viewBox="0 0 570 530" aria-hidden="true">
-            <path class="edge" d="M285 264 123 140 M285 264 460 115 M285 264 476 351 M285 264 190 434 M285 264 79 319 M123 140 460 115 M79 319 190 434 M460 115 476 351"/>
-            <path class="edge green" d="M123 140 285 264 476 351 M190 434 285 264 460 115"/>
-            <circle cx="285" cy="264" r="91" fill="rgba(197,255,115,.017)" stroke="rgba(197,255,115,.18)" stroke-dasharray="2 9"/>
-            <circle class="node main" cx="285" cy="264" r="63"/><circle cx="285" cy="264" r="53" fill="none" stroke="rgba(197,255,115,.13)"/>
-            <path d="M267 255h36m-36 9h36m-36 9h25" stroke="#c5ff73" stroke-width="2" stroke-linecap="round"/><text x="285" y="290" text-anchor="middle" style="font-size:11px;fill:#c5ff73">SYSTEMS</text>
-            <circle class="node" cx="123" cy="140" r="43"/><circle class="pin" cx="123" cy="110" r="3"/><text x="123" y="138" text-anchor="middle">NETWORK</text><text class="tiny" x="123" y="154" text-anchor="middle">MIKROTIK</text>
-            <circle class="node blue" cx="460" cy="115" r="47"/><circle class="pin blue" cx="460" cy="83" r="3"/><text x="460" y="113" text-anchor="middle">PLATFORM</text><text class="tiny" x="460" y="129" text-anchor="middle">LINUX / VMS</text>
-            <circle class="node" cx="476" cy="351" r="46"/><circle class="pin" cx="476" cy="317" r="3"/><text x="476" y="348" text-anchor="middle">AUTOMATE</text><text class="tiny" x="476" y="364" text-anchor="middle">OPERATIONS</text>
-            <circle class="node blue" cx="190" cy="434" r="44"/><circle class="pin blue" cx="190" cy="402" r="3"/><text x="190" y="432" text-anchor="middle">SECURITY</text><text class="tiny" x="190" y="448" text-anchor="middle">EVIDENCE</text>
-            <circle class="node main" cx="79" cy="319" r="40"/><text x="79" y="318" text-anchor="middle">LOCAL AI</text><text class="tiny" x="79" y="333" text-anchor="middle">BUILD</text>
-            <circle class="pin" cx="372" cy="196" r="3"/><circle class="pin blue" cx="233" cy="174" r="3"/>
-          </svg>
-          <div class="float-label fl1">REAL SYSTEMS / REAL PROBLEMS</div>
-          <div class="float-label fl2">DESIGN → BUILD → VERIFY</div>
-          <div class="float-label fl3">EVIDENCE FIRST</div>
-        </div>
-      </div>
-      <div class="hero-bottom"><div class="container hero-bottom-inner"><span>NEJDE O SEZNAM TECHNOLOGIÍ. JDE O TO, CO S NIMI POSTAVÍŠ.</span><span class="scroll-mark">SCROLL <span></span></span></div></div>
-    </section>
-    <div class="container principles">
-      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 2 8 5v10l-8 5-8-5V7l8-5Zm0 8 8-3m-8 3L4 7m8 3v12"/></svg><div><h3>Infrastructure-first</h3><p>Spolehlivý základ, rozumná architektura a dohled nad provozem.</p></div></div>
-      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 12 2 2 4-4M12 2l9 4v6c0 5-4 8-9 10-5-2-9-5-9-10V6l9-4Z"/></svg><div><h3>Security by design</h3><p>Kontrolovatelné změny, důkazy, izolace a možnost návratu.</p></div></div>
-      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 3v6m10 6v6M3 9h8l2 6h8M7 9l5 6m0-12v3m0 12v3"/></svg><div><h3>AI as an amplifier</h3><p>AI jako součást řízeného procesu, ne náhrada odpovědnosti.</p></div></div>
-    </div>
-    <section id="o-mne" class="section intro">
-      <div class="container">
-        <div class="section-head appear"><div><div class="eyebrow">01 / PROFIL</div><h2>Technik, který začal<br>myslet v systémech.</h2></div><p class="section-sub">Propojuji provozní zkušenost s vývojem vlastních nástrojů. Od konfigurace jednotlivého zařízení k návrhu celého řešení.</p></div>
-        <div class="intro-grid">
-          <p class="intro-lead appear">Moje práce stojí na jednoduchém principu: <strong>porozumět problému, postavit funkční řešení a umět doložit, že opravdu funguje.</strong></p>
-          <div class="intro-right appear"><p>Pracuji napříč sítěmi, servery, vzdáleným přístupem, bezpečnostní analýzou a automatizací. Vlastní laboratorní prostředí používám k návrhu, testování a provozu praktických systémů.</p><p>V poslední etapě k tomu přidávám AI-native vývoj: propojení modelů, nástrojů, dat, infrastruktury a lidského rozhodování do kontrolovatelných pracovních postupů.</p></div>
-        </div>
-        <div class="technologies appear" aria-label="Používané technologie"><span class="tech">MikroTik / RouterOS</span><span class="tech">Linux</span><span class="tech">Proxmox</span><span class="tech">WireGuard</span><span class="tech">Cloudflare</span><span class="tech">Docker</span><span class="tech">Git / CI</span><span class="tech">Python</span><span class="tech">PowerShell</span><span class="tech">WordPress</span><span class="tech">OSINT</span><span class="tech">Digital Forensics</span><span class="tech">Local LLM</span><span class="tech">AI Automation</span></div>
-      </div>
-    </section>
-    <section id="cesta" class="section">
-      <div class="container">
-        <div class="section-head appear"><div><div class="eyebrow">02 / VÝVOJ KOMPETENCÍ</div><h2>Jedna cesta.<br>Pět vrstev zkušeností.</h2></div><p class="section-sub">Tematická mapa profesního vývoje. Konkrétní roky, zaměstnání a certifikace budou doplněny až po ověření.</p></div>
-        <div class="timeline">
-          <article class="phase appear"><div class="phase-index">01</div><div class="phase-content"><div><div class="phase-kicker">Základ / NETWORKING</div><h3 class="phase-title">Od MikroTiku<br>k celé síti.</h3></div><div><p>Konfigurace síťových prvků se postupně změnila v pohled na infrastrukturu jako celek: routing, firewall, dostupnost, segmentace, vzdálený přístup a provozní diagnostika.</p><div class="phase-tags"><span>RouterOS</span><span>Routing</span><span>Firewall</span><span>VPN</span></div></div></div></article>
-          <article class="phase appear"><div class="phase-index">02</div><div class="phase-content"><div><div class="phase-kicker">Provoz / INFRASTRUCTURE</div><h3 class="phase-title">Od zařízení<br>k platformě.</h3></div><div><p>Servery, virtualizace, kontejnery a služby. Vlastní prostředí HS2/SystemLog jako prostor pro monitoring, zálohování, síťové propojení, bezpečné změny a ověřování obnovy.</p><div class="phase-tags"><span>Linux</span><span>Proxmox</span><span>Docker</span><span>Monitoring</span></div></div></div></article>
-          <article class="phase appear"><div class="phase-index">03</div><div class="phase-content"><div><div class="phase-kicker">Analýza / SECURITY</div><h3 class="phase-title">Od logu<br>k důkazům.</h3></div><div><p>Bezpečnostní analýza, OSINT a digitální forenzika. Důraz na původ dat, opakovatelnost postupu, práci s artefakty a oddělení pozorování od interpretace.</p><div class="phase-tags"><span>OSINT</span><span>Acquisition</span><span>Traceability</span><span>Integrity</span></div></div></div></article>
-          <article class="phase appear"><div class="phase-index">04</div><div class="phase-content"><div><div class="phase-kicker">Inženýrství / AUTOMATION</div><h3 class="phase-title">Od rutiny<br>k automatizaci.</h3></div><div><p>Skriptování, testovací postupy, CI a řízení opakovaných úloh. Cíl: méně ručních zásahů, předvídatelný provoz a přehledný recovery proces — zejména při správě služeb a webů.</p><div class="phase-tags"><span>Python</span><span>PowerShell</span><span>CI</span><span>Backup / Restore</span></div></div></div></article>
-          <article class="phase appear"><div class="phase-index">05</div><div class="phase-content"><div><div class="phase-kicker">Současný směr / AI-NATIVE SYSTEMS</div><h3 class="phase-title">Od nástrojů<br>k architektuře.</h3></div><div><p>Navrhování propojených systémů s AI: lokální modely, orchestrace úloh, analytické pipeline, lidský dohled a integrace se skutečným prostředím. AI urychluje vývoj; odpovědnost za návrh a výsledek zůstává na člověku.</p><div class="phase-tags"><span>Local LLM</span><span>AI Workflows</span><span>Systems Design</span><span>Human-in-the-loop</span></div></div></div></article>
-        </div>
-      </div>
-    </section>
-    <section id="projekty" class="section projects">
-      <div class="container">
-        <div class="section-head appear"><div><div class="eyebrow">03 / VLASTNÍ PROJEKTY</div><h2>Nejen zkušenosti.<br>Skutečná práce.</h2></div><p class="section-sub">Vybrané systémy a vývojové projekty. Uvedený stav rozlišuje reálný provoz a probíhající vývoj.</p></div>
-        <div class="project-filter appear" role="group" aria-label="Filtr projektů"><button class="filter active" data-filter="all" aria-pressed="true">Vše</button><button class="filter" data-filter="infrastructure" aria-pressed="false">Infrastruktura</button><button class="filter" data-filter="security" aria-pressed="false">Bezpečnost</button><button class="filter" data-filter="ai" aria-pressed="false">AI & automatizace</button></div>
-        <div class="project-grid">
-          <article class="project appear" data-categories="infrastructure"><div class="project-top"><span class="project-id">CASE / 001 — OPERATIONS</span><span class="project-status">Vlastní provoz</span></div><h3>SystemLog / HS2</h3><p>Vlastní systémové prostředí: síťové služby, vzdálený přístup, provoz kontejnerových aplikací, monitoring a bezpečné postupy pro změny a zálohy.</p><div class="project-foot"><div class="project-tags"><span>Infrastructure</span><span>Networking</span><span>Operations</span></div></div></article>
-          <article class="project appear" data-categories="security ai"><div class="project-top"><span class="project-id">CASE / 002 — INVESTIGATION</span><span class="project-status sandbox">Fyzická acceptance zbývá</span></div><h3>FORGE</h3><p>Lokální investigativní nástroj s vedeným workflow, důrazem na sběr a integritu artefaktů, reprodukovatelnost a oddělení důkazů od analytických závěrů.</p><div class="project-foot"><div class="project-tags"><span>Digital Forensics</span><span>Evidence</span><span>Local AI</span></div></div></article>
-          <article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 003 — INTELLIGENCE</span><span class="project-status sandbox">Aktivní vývoj</span></div><h3>NORTH STAR</h3><p>Experimentální centrální vrstva pro práci se systémovými daty, interpretaci událostí, lokální AI a koordinaci nástrojů v rámci vlastního prostředí.</p><div class="project-foot"><div class="project-tags"><span>Local-first</span><span>Orchestration</span><span>Observability</span></div></div></article>
-          <article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 004 — WEB AUTOMATION</span><span class="project-status sandbox">Aktivní vývoj</span></div><h3>WEB OPS</h3><p>Směr ke spravované údržbě WordPress instalací: oddělené backupy, kontrolovatelné změny, provozní přehled a postupy obnovy.</p><div class="project-foot"><div class="project-tags"><span>WordPress</span><span>Automation</span><span>Recovery</span></div></div></article>
-          <article class="project appear" data-categories="security infrastructure"><div class="project-top"><span class="project-id">CASE / 005 — FIELD RESEARCH</span><span class="project-status sandbox">Terénní testování</span></div><h3>SHINOBI / MONK</h3><p>Mobilní a lokální sběr telemetrie, read-only přístupy a analytické experimenty. Důraz na oddělení měření, interpretace a případných zásahů.</p><div class="project-foot"><div class="project-tags"><span>Telemetry</span><span>Linux</span><span>Security</span></div></div></article>
-          <article class="project appear" data-categories="ai security"><div class="project-top"><span class="project-id">CASE / 006 — TOOLING</span><span class="project-status sandbox">Vývoj a testování</span></div><h3>FUJIN / RAIJIN</h3><p>Forenzní sběr a analýza systémových artefaktů jako předchůdci současného vývoje FORGE. Od původních dat k dohledatelným pracovním výstupům.</p><div class="project-foot"><div class="project-tags"><span>Collection</span><span>Windows</span><span>Analysis</span></div></div></article>
-        </div>
-      </div>
-    </section>
-    <section id="pristup" class="section">
-      <div class="container"><div class="section-head appear"><div><div class="eyebrow">04 / ZPŮSOB PRÁCE</div><h2>Jak přemýšlím<br>nad technikou.</h2></div><p class="section-sub">Nehledám nejsložitější řešení. Hledám takové, které je použitelné, bezpečné a dá se dlouhodobě udržet.</p></div>
-        <div class="approach"><article class="appear"><span class="n">01 / DESIGN</span><h3>Nejdřív celek.</h3><p>Rozumět problému, hranicím systému a tomu, co má být skutečným výsledkem.</p></article><article class="appear"><span class="n">02 / VERIFY</span><h3>Potom důkazy.</h3><p>Test, log, reprodukovatelný postup, záloha a plán návratu místo předpokladu, že „to asi funguje“.</p></article><article class="appear"><span class="n">03 / IMPROVE</span><h3>Pak teprve škálovat.</h3><p>Automatizovat ověřené procesy a propojovat služby jen tehdy, když to přináší hodnotu.</p></article></div>
-      </div>
-    </section>
-    <section class="endcap" id="kontakt"><div class="container endcap-inner"><div class="appear"><div class="eyebrow">05 / PROFESNÍ SHRNUTÍ</div><h2>IT generalista.<br>System builder.<br><span>AI-native mindset.</span></h2><p>Propojuji praktickou správu infrastruktury, bezpečnostní přístup a vývoj automatizovaných nástrojů. Mým směrem je návrh a provoz srozumitelných, bezpečných systémů, ve kterých AI rozšiřuje lidské možnosti — ne komplikuje provoz.</p></div><div class="contact-stack appear"><a class="btn btn-primary" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">Prohlédnout GitHub <span aria-hidden="true">↗</span></a><button class="btn btn-secondary" type="button" id="print-cv-bottom">Uložit profil jako PDF <span aria-hidden="true">↗</span></button><p class="contact-note">Profesní kontakt a veřejné projekty<br>na mém GitHub profilu.</p></div></div></section>
-  </main>
-  <footer class="container footer"><span><strong>SYSTEMLOG</strong> / PROFESSIONAL PROFILE — 2026</span><span>Konkrétní interní adresy, konfigurace a citlivé detaily nejsou zveřejněny.</span><a href="#uvod">Zpět nahoru ↑</a></footer>
-  <script>
+<a class="skip" href="#obsah">Přejít na obsah</a>
+<header class="header">
+<div class="container header-inner">
+<a aria-label="SystemLog, úvod" class="brand" href="#uvod">
+<span aria-hidden="true" class="brand-icon"><svg fill="none" viewbox="0 0 24 24"><path d="M5 6h6v6H5zM13 12h6v6h-6zM8 12v5h5M11 9h5v3" stroke="#c5ff73" stroke-linejoin="round" stroke-width="1.4"></path></svg></span>
+<span class="brand-name">SYSTEM<span>LOG</span><span class="profile-suffix"><span style="color:#596674"> / </span>PROFILE</span></span>
+</a>
+<nav aria-label="Hlavní navigace" class="nav" id="main-nav"><a href="#o-mne">O mně</a><a href="#cesta">Moje cesta</a><a href="#projekty">Projekty</a><a href="#certifikace">Kvalifikace</a><a href="#pristup">Přístup</a></nav>
+<div aria-label="Výběr jazyka" class="lang-switch" role="group"><a aria-current="page" href="/" lang="cs" title="Čeština">CZ</a><a href="/en/" lang="en" title="English">EN</a></div>
+<a class="nav-github" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+<button aria-controls="main-nav" aria-expanded="false" aria-label="Otevřít navigaci" class="menu-btn" id="menu-btn">☰</button>
+</div>
+</header>
+<main id="obsah">
+<section class="hero" id="uvod">
+<div class="container hero-inner">
+<div class="hero-copy appear">
+<div class="micro-row"><span aria-hidden="true" class="live-dot"></span><span>TECHNOLOGY / SYSTEMS / HUMAN</span><span class="dash"></span><span>2026</span></div>
+<h1>Stavím věci,<br/>které <em>fungují.</em></h1>
+<p class="hero-desc">Od práce rukama a budování sítí přes servery až k automatizaci, digitální forenzice a AI. Propojuji techniku do řešení, která mají skutečný účel.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#cesta">Prozkoumat moji cestu <span aria-hidden="true">↘</span></a><button class="btn btn-secondary" id="print-cv" type="button">Uložit CV jako PDF <span aria-hidden="true">↗</span></button></div>
+<div class="hero-note"><span>●</span> BUILD   /   CONNECT   /   CREATE</div>
+</div>
+<div aria-label="Ilustrace propojení sítí, infrastruktury, bezpečnosti, automatizace a AI" class="visual" role="img">
+<div class="visual-ring r3"></div><div class="visual-ring"></div><div class="visual-ring r2"></div>
+<svg aria-hidden="true" class="network" viewbox="0 0 570 530">
+<path class="edge" d="M285 264 123 140 M285 264 460 115 M285 264 476 351 M285 264 190 434 M285 264 79 319 M123 140 460 115 M79 319 190 434 M460 115 476 351"></path>
+<path class="edge green" d="M123 140 285 264 476 351 M190 434 285 264 460 115"></path>
+<circle cx="285" cy="264" fill="rgba(197,255,115,.017)" r="91" stroke="rgba(197,255,115,.18)" stroke-dasharray="2 9"></circle>
+<circle class="node main" cx="285" cy="264" r="63"></circle><circle cx="285" cy="264" fill="none" r="53" stroke="rgba(197,255,115,.13)"></circle>
+<path d="M267 255h36m-36 9h36m-36 9h25" stroke="#c5ff73" stroke-linecap="round" stroke-width="2"></path><text style="font-size:11px;fill:#c5ff73" text-anchor="middle" x="285" y="290">SYSTEMS</text>
+<circle class="node" cx="123" cy="140" r="43"></circle><circle class="pin" cx="123" cy="110" r="3"></circle><text text-anchor="middle" x="123" y="138">NETWORK</text><text class="tiny" text-anchor="middle" x="123" y="154">MIKROTIK</text>
+<circle class="node blue" cx="460" cy="115" r="47"></circle><circle class="pin blue" cx="460" cy="83" r="3"></circle><text text-anchor="middle" x="460" y="113">PLATFORM</text><text class="tiny" text-anchor="middle" x="460" y="129">LINUX / VMS</text>
+<circle class="node" cx="476" cy="351" r="46"></circle><circle class="pin" cx="476" cy="317" r="3"></circle><text text-anchor="middle" x="476" y="348">AUTOMATE</text><text class="tiny" text-anchor="middle" x="476" y="364">OPERATIONS</text>
+<circle class="node blue" cx="190" cy="434" r="44"></circle><circle class="pin blue" cx="190" cy="402" r="3"></circle><text text-anchor="middle" x="190" y="432">SECURITY</text><text class="tiny" text-anchor="middle" x="190" y="448">EVIDENCE</text>
+<circle class="node main" cx="79" cy="319" r="40"></circle><text text-anchor="middle" x="79" y="318">LOCAL AI</text><text class="tiny" text-anchor="middle" x="79" y="333">BUILD</text>
+<circle class="pin" cx="372" cy="196" r="3"></circle><circle class="pin blue" cx="233" cy="174" r="3"></circle>
+</svg>
+<div class="float-label fl1">REAL SYSTEMS / REAL PROBLEMS</div>
+<div class="float-label fl2">DESIGN → BUILD → VERIFY</div>
+<div class="float-label fl3">EVIDENCE FIRST</div>
+</div>
+</div>
+<div class="hero-bottom"><div class="container hero-bottom-inner"><span>OD KABELŮ A HARDWARU K SÍŤOVÉ ARCHITEKTUŘE, SOFTWARU A AI.</span><span class="scroll-mark">SCROLL <span></span></span></div></div>
+</section>
+<div class="container principles">
+<div class="principle"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="m12 2 8 5v10l-8 5-8-5V7l8-5Zm0 8 8-3m-8 3L4 7m8 3v12"></path></svg><div><h3>Infrastructure-first</h3><p>Spolehlivý základ, rozumná architektura a dohled nad provozem.</p></div></div>
+<div class="principle"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="m9 12 2 2 4-4M12 2l9 4v6c0 5-4 8-9 10-5-2-9-5-9-10V6l9-4Z"></path></svg><div><h3>Security by design</h3><p>Kontrolovatelné změny, důkazy, izolace a možnost návratu.</p></div></div>
+<div class="principle"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M7 3v6m10 6v6M3 9h8l2 6h8M7 9l5 6m0-12v3m0 12v3"></path></svg><div><h3>AI as an amplifier</h3><p>AI jako součást řízeného procesu, ne náhrada odpovědnosti.</p></div></div>
+</div>
+<section class="section intro" id="o-mne"><div class="container"><div class="section-head appear"><div><div class="eyebrow">01 / PROFIL</div><h2>Od skutečných věcí<br/>k digitálním systémům.</h2></div><p class="section-sub">Zkušenosti ze skutečného provozu, vlastní vývoj a radost z tvorby — od technických instalací po řízené AI workflow.</p></div><div class="intro-grid"><p class="intro-lead appear"><strong>Porozumět problému. Navrhnout řešení. Postavit ho. Ověřit, že funguje.</strong> Tak přistupuji k technice bez ohledu na to, zda jde o síť, software, nebo fyzickou infrastrukturu.</p><div class="intro-right appear"><p>Technologie mě baví od dětství. Vedle hardwaru, mechaniky a elektroniky se dlouhodobě věnuji obnově staré hájovny a vlastní ostrovní energetice. Rád pracuji rukama a vidím konkrétní výsledek.</p><p>Stejný princip používám v IT: budování sítí MikroTik, instalace kabeláže, vzdálený přístup, Linux/Windows servery a virtualizace. Vlastní Home Stack se stal prostředím pro automatizaci a lokální AI.</p><p>Při vývoji aplikací využívám AI jako spolupracovníka. Držím směr, architekturu, integraci, testování a odpovědnost za výsledné řešení.</p></div></div><div aria-label="Používané technologie" class="technologies appear"><span class="tech">MikroTik / RouterOS</span><span class="tech">Linux</span><span class="tech">Windows</span><span class="tech">Proxmox</span><span class="tech">WireGuard</span><span class="tech">Docker</span><span class="tech">Python</span><span class="tech">Git / CI</span><span class="tech">WordPress</span><span class="tech">SQL</span><span class="tech">Digital Forensics</span><span class="tech">Local LLM</span><span class="tech">Victron</span><span class="tech">AI Workflows</span></div></div></section>
+<section class="section" id="cesta"><div class="container"><div class="section-head appear"><div><div class="eyebrow">02 / CESTA</div><h2>Jedna cesta.<br/>Tři propojené světy.</h2></div><p class="section-sub">Fyzická technika, síťová infrastruktura a vlastní software. Všechny tři oblasti se v mých projektech přirozeně prolínají.</p></div><div class="timeline"><article class="phase appear"><div class="phase-index">01</div><div class="phase-content"><div><div class="phase-kicker">BUILD / PHYSICAL ENGINEERING</div><h3 class="phase-title">Věci, které lze<br/>vzít do ruky.</h3></div><div><p>Hardware, elektroinstalace, mechanika a dlouhodobá rekonstrukce historické hájovny. Od objektu bez přípojky elektřiny k vlastnímu třífázovému systému Victron. Stavba a údržba jsou součástí každodenní praxe.</p><div class="phase-tags"><span>Hardware</span><span>Electronics</span><span>Victron</span><span>Hands-on work</span></div></div></div></article><article class="phase appear"><div class="phase-index">02</div><div class="phase-content"><div><div class="phase-kicker">CONNECT / NETWORKS &amp; SYSTEMS</div><h3 class="phase-title">Od jednoho routeru<br/>k celé infrastruktuře.</h3></div><div><p>První MikroTik s LTE, později Starlink, vlastní servery, VPN, virtualizace a Home Stack. Síťové instalace také pro rodinu a další pracoviště — včetně kabeláže, krimpování, konfigurace a diagnostiky.</p><div class="phase-tags"><span>MikroTik</span><span>LTE / Starlink</span><span>WireGuard</span><span>Linux / Proxmox</span></div></div></div></article><article class="phase appear"><div class="phase-index">03</div><div class="phase-content"><div><div class="phase-kicker">CREATE / SOFTWARE &amp; AI</div><h3 class="phase-title">Od skriptu<br/>k integrovanému systému.</h3></div><div><p>První Python nástroje řešily konkrétní úlohy. Postupně vznikaly aplikace, automatizační procesy a forenzní workflow. Lokální AI a agentní nástroje používám pod lidskou kontrolou, se zaměřením na přínos a ověřitelnost.</p><div class="phase-tags"><span>Python</span><span>WordPress</span><span>Git / CI</span><span>Local AI</span></div></div></div></article></div></div></section>
+<section class="section projects" id="projekty"><div class="container"><div class="section-head appear"><div><div class="eyebrow">03 / VYBRANÉ REALIZACE</div><h2>Nejen nápady.<br/>Skutečná práce.</h2></div><p class="section-sub">Výběr praktických realizací i vyvíjených produktů. U každého je uveden skutečný stav — provoz, dokončované řešení nebo experiment.</p></div><div aria-label="Filtr projektů" class="project-filter appear" role="group"><button aria-pressed="true" class="filter active" data-filter="all">Vše</button><button aria-pressed="false" class="filter" data-filter="infrastructure">Infrastruktura</button><button aria-pressed="false" class="filter" data-filter="security">Bezpečnost</button><button aria-pressed="false" class="filter" data-filter="ai">Software &amp; AI</button></div><div class="project-grid"><article class="project appear" data-categories="ai"><div class="project-top"><span class="project-id">CASE / 001 / PUBLISHING</span><span class="project-status">Prakticky ověřeno</span></div><h3>BICHEZ Importer</h3><p>Automatizace vydávání odborného časopisu: zpracování článků, autorů a citací, kontrola dat a příprava ověřitelného SQL importu. Vydání 2/2026 zpracováno v úplném pracovním postupu; 61/61 regresních testů k září 2026.</p><div class="project-foot"><div class="project-tags"><span>Python</span><span>SQL</span><span>Document processing</span><span>Quality assurance</span></div></div></article><article class="project appear" data-categories="security ai"><div class="project-top"><span class="project-id">CASE / 002 / FORENSICS</span><span class="project-status sandbox">Verze 1.0 v akceptaci</span></div><h3>FORGE</h3><p>Přenosná lokální forenzní pracovní stanice. Sjednocuje zdroje, ověřování integrity, časové osy, vyhodnocování a reportování s podporou lokální AI. Vznikla vývojem přes Python collector, FUJIN/RAIJIN a CaseCapture.</p><div class="project-foot"><div class="project-tags"><span>Evidence</span><span>Python</span><span>Local AI</span><span>Traceability</span></div></div></article><article class="project appear" data-categories="infrastructure"><div class="project-top"><span class="project-id">CASE / 003 / INFRASTRUCTURE</span><span class="project-status">Vlastní provoz</span></div><h3>Home Stack / HS2</h3><p>Postupně budované prostředí pro síťové a serverové služby, vzdálený přístup, monitoring, kontejnery a bezpečné změny. Důraz na zálohování, obnovitelnost a udržitelnost provozu jednoho správce.</p><div class="project-foot"><div class="project-tags"><span>MikroTik</span><span>Linux</span><span>Docker</span><span>Operations</span></div></div></article><article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 004 / WEB</span><span class="project-status">Web v provozu</span></div><h3>EDUCAT</h3><p>Webový projekt vytvořený pro reálné používání. Od původního Huga přešel na WordPress kvůli praktičtější každodenní správě. Na této zkušenosti staví další práce s WordPressem a jeho automatizací.</p><div class="project-foot"><div class="project-tags"><span>WordPress</span><span>Hugo</span><span>Web operations</span></div></div></article><article class="project appear" data-categories="ai"><div class="project-top"><span class="project-id">CASE / 005 / WORKFLOW</span><span class="project-status sandbox">Vývoj a testování</span></div><h3>Můj Šatník</h3><p>Vlastní registrační a administrativní workflow pro Šatník Praha. Práce s účty, podklady, schvalováním a e-mailovou komunikací; funkce a chování se dále ladí podle reálných potřeb.</p><div class="project-foot"><div class="project-tags"><span>WordPress</span><span>PHP</span><span>User workflows</span></div></div></article><article class="project appear" data-categories="infrastructure ai"><div class="project-top"><span class="project-id">CASE / 006 / WORDPRESS CARE</span><span class="project-status sandbox">Příprava služby</span></div><h3>WEB OPS</h3><p>Vývoj kontrolované správy více WordPress webů: evidence záloh, návrhy údržby, audit a bezpečné operátorské schvalování. Produkční automatizovaná správa klientské flotily ani komerční provoz zatím nejsou hotové.</p><div class="project-foot"><div class="project-tags"><span>WordPress</span><span>Automation</span><span>Backup / Restore</span></div></div></article><article class="project appear" data-categories="ai infrastructure"><div class="project-top"><span class="project-id">CASE / 007 / LOCAL AI</span><span class="project-status sandbox">Aktivní vývoj</span></div><h3>NORTH STAR</h3><p>Rozvíjená koncepce lokálního AI ekosystému pro propojení modelů, dat, nástrojů a infrastruktury. Záměrem je přenositelnost, soukromí a smysluplná automatizace, nikoliv nekontrolovaná autonomie.</p><div class="project-foot"><div class="project-tags"><span>Local-first</span><span>Orchestration</span><span>AI Systems</span></div></div></article></div></div></section>
+<section class="section credentials" id="certifikace"><div class="container"><div class="section-head appear"><div><div class="eyebrow">04 / KVALIFIKACE</div><h2>Odborné vzdělávání.<br/>Praktická zkušenost.</h2></div><p class="section-sub">Certifikace a školení uvedené v profesním CV. Podrobné doklady a platnosti lze ověřit samostatně.</p></div><div class="credential-grid"><article class="credential appear"><span class="credential-source">Cellebrite</span><h3>Iron Python Certification (CIP) · 2025</h3></article><article class="credential appear"><span class="credential-source">Cellebrite</span><h3>Collector &amp; Inspector Operator (CCIO) · 2026</h3></article><article class="credential appear"><span class="credential-source">Cellebrite</span><h3>Certified Evidence Repair Technician – Forensics (CERT-F) · 2025</h3></article><article class="credential appear"><span class="credential-source">ALEF Training Center</span><h3>Úvod do forenzní analýzy paměti · 2025</h3></article><article class="credential appear"><span class="credential-source">GOPAS</span><h3>Hackování dronů · 2026</h3></article><article class="credential appear"><span class="credential-source">Professional development</span><h3>Complete Ethical Hacking Bootcamp</h3></article><article class="credential appear"><span class="credential-source">EASA</span><h3>A1/A3 — dálkově řídící pilot dronu</h3></article></div><p class="credential-note">Odborná praxe: infrastruktura, sítě, provoz IT, technická bezpečnost a digitálně-forenzní analýza. Bez zveřejňování neveřejných pracovních informací.</p></div></section><section class="section" id="pristup"><div class="container"><div class="section-head appear"><div><div class="eyebrow">05 / ZPŮSOB PRÁCE</div><h2>Jak přemýšlím<br/>nad technikou.</h2></div><p class="section-sub">Řešení má být použitelné, srozumitelné, bezpečné a dlouhodobě udržitelné.</p></div><div class="approach"><article class="appear"><span class="n">01 / DESIGN</span><h3>Nejdřív celek.</h3><p>Pochopit problém, hranice systému, skutečné potřeby a provozní omezení.</p></article><article class="appear"><span class="n">02 / VERIFY</span><h3>Potom důkazy.</h3><p>Testy, logy, kontrola výsledků, zálohy a možnost bezpečného návratu.</p></article><article class="appear"><span class="n">03 / IMPROVE</span><h3>Až potom škálovat.</h3><p>Automatizovat ověřenou práci a přidávat složitost pouze tam, kde přináší hodnotu.</p></article></div></div></section>
+<section class="endcap" id="kontakt"><div class="container endcap-inner"><div class="appear"><div class="eyebrow">06 / KONTAKT</div><h2>Build.<br/>Connect.<br/><span>Create.</span></h2><p>Zajímá mě práce propojující síťovou a systémovou administraci, infrastrukturu, automatizaci a vývoj. Vedle vlastních technických projektů připravuji služby pro správu WordPress webů. Hledám konkrétní problémy, které má smysl řešit.</p></div><div class="contact-stack appear"><a class="btn btn-primary" href="https://github.com/JanHorans" rel="noopener noreferrer" target="_blank">Prohlédnout GitHub <span aria-hidden="true">↗</span></a><button class="btn btn-secondary" id="print-cv-bottom" type="button">Uložit profil jako PDF <span aria-hidden="true">↗</span></button><p class="contact-note">Vybrané projekty a profesní kontakt prostřednictvím GitHubu.</p></div></div></section>
+</main>
+<footer class="container footer"><span><strong>SYSTEMLOG</strong> / PROFESSIONAL PROFILE — 2026</span><span>Veřejná verze neobsahuje soukromou projektovou historii ani interní konfigurace.</span><a href="#uvod">Zpět nahoru ↑</a></footer>
+<script>
     (()=>{
       const nav=document.querySelector('#main-nav'),menu=document.querySelector('#menu-btn');
       menu?.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(isOpen));menu.setAttribute('aria-label',isOpen?'Zavřít navigaci':'Otevřít navigaci');});
@@ -287,7 +258,7 @@
         document.querySelectorAll('.appear').forEach(el=>observer.observe(el));
       }else{document.querySelectorAll('.appear').forEach(el=>el.classList.add('in'));}
       const anchors=[...document.querySelectorAll('nav a[href^="#"]')];
-      if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){anchors.forEach(a=>a.removeAttribute('aria-current'));const a=anchors.find(a=>a.getAttribute('href')==='#'+e.target.id);if(a)a.setAttribute('aria-current','true');}}},{rootMargin:'-12% 0px -76% 0px'});document.querySelectorAll('#o-mne,#cesta,#projekty,#pristup').forEach(el=>obs.observe(el));}
+      if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){anchors.forEach(a=>a.removeAttribute('aria-current'));const a=anchors.find(a=>a.getAttribute('href')==='#'+e.target.id);if(a)a.setAttribute('aria-current','true');}}},{rootMargin:'-12% 0px -76% 0px'});document.querySelectorAll('#o-mne,#cesta,#projekty,#certifikace,#pristup').forEach(el=>obs.observe(el));}
     })();
   </script>
 </body>
