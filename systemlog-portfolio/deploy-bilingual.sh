@@ -13,11 +13,12 @@ BACKUP_DIR=/var/backups/systemlog-portfolio
 REV=3db96d87acae119f6ceaa1403857f6a758baf8e2
 BASE="https://raw.githubusercontent.com/JanHorans/PROJECT-PREVIEWS/$REV/systemlog-portfolio"
 SHA_OLD=6188594805c129abcdf0c7dc71862b6ae953e6bd2d51ffa5ea8672b86bf6a2ff
-SHA_CS=92f75159a86989c75eaa8d39028b7103c0224514a12bc1795d98e24acbf7fda9
-SHA_EN=503e77d9161cc535461cbf301dbe84d77021f4e8a7f43c0be673d9edecb16172
+BLOB_CS=9528f236f5165232bd1f07f7d9234398181a1427
+BLOB_EN=318f9f57c323bc8d5f69ce02e3fe394feb777136
 
 [[ -d "$SITE" && -f "$INDEX" && ! -L "$INDEX" ]] || { echo 'ERROR: unexpected current site'; exit 1; }
 [[ ! -e "$EN_DIR" && ! -L "$EN_DIR" ]] || { echo 'ERROR: /en already exists; no overwrite'; exit 1; }
+command -v git >/dev/null || { echo 'ERROR: git required for blob verification'; exit 1; }
 grep -Fq 'root * /opt/hs2/edge/sites/systemlog' /etc/caddy/Caddyfile || { echo 'ERROR: site root not verified'; exit 1; }
 printf '%s  %s\n' "$SHA_OLD" "$INDEX" | sha256sum -c - || { echo 'ERROR: changed baseline; no changes made'; exit 1; }
 
@@ -44,8 +45,9 @@ trap rollback ERR
 
 curl -fsSL --retry 2 --connect-timeout 8 --max-time 40 -o "$STAGE/cs.html" "$BASE/index.html"
 curl -fsSL --retry 2 --connect-timeout 8 --max-time 40 -o "$STAGE/en.html" "$BASE/en/index.html"
-printf '%s  %s\n' "$SHA_CS" "$STAGE/cs.html" | sha256sum -c -
-printf '%s  %s\n' "$SHA_EN" "$STAGE/en.html" | sha256sum -c -
+[[ "$(git hash-object "$STAGE/cs.html")" == "$BLOB_CS" ]] || { echo 'ERROR: CZ does not match pinned GitHub blob; no changes made'; exit 1; }
+[[ "$(git hash-object "$STAGE/en.html")" == "$BLOB_EN" ]] || { echo 'ERROR: EN does not match pinned GitHub blob; no changes made'; exit 1; }
+echo 'SOURCE INTEGRITY: CZ and EN verified against pinned GitHub blobs'
 grep -Fq '<html lang="cs">' "$STAGE/cs.html"
 grep -Fq '<html lang="en">' "$STAGE/en.html"
 grep -Fq 'lang-switch' "$STAGE/cs.html"
