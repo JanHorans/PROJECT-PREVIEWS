@@ -76,11 +76,14 @@ changed=1
 mv -f -- "$new_en" "$EN"; new_en=
 mv -f -- "$new_cs" "$CS"; new_cs=
 [[ "$(git hash-object "$CS")" == "$NEW_CS" && "$(git hash-object "$EN")" == "$NEW_EN" ]] || { echo 'ERROR: deployed file hash mismatch'; exit 1; }
+# Fetch completely before searching. Avoid curl | grep -q under pipefail,
+# because grep may close the pipe early and make a successful curl look failed.
 verify_origin(){
-  local route="$1" marker="$2"
-  curl -kfsS --noproxy '*' --max-time 15 --resolve systemlog.icu:443:127.0.0.1 "https://systemlog.icu$route" | grep -Fq "$marker"
+  local route="$1" marker="$2" output="$3"
+  curl -kfsS --noproxy '*' --max-time 15 --resolve systemlog.icu:443:127.0.0.1 -o "$output" "https://systemlog.icu$route"
+  grep -Fq "$marker" "$output"
 }
-verify_origin / 'Stavím věci'
-verify_origin /en/ 'I build things'
+verify_origin / 'Stavím věci' "$stage/origin-cs.html"
+verify_origin /en/ 'I build things' "$stage/origin-en.html"
 changed=0
 printf '%s\n' 'DEPLOY: PASS — public CZ/EN origin verified' "BACKUP: $backup" 'CZ: https://systemlog.icu/' 'EN: https://systemlog.icu/en/' 'PRIVATE JOURNAL: not deployed; requires access gate first' 'NOTE: Cloudflare may still challenge public automated clients.'
