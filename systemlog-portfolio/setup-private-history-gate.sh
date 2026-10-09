@@ -33,7 +33,9 @@ IFS= read -r -s -p 'Password: ' password; printf '\n'
 IFS= read -r -s -p 'Repeat password: ' confirm; printf '\n'
 [[ "$password" == "$confirm" && ${#password} -ge 16 ]] || { echo 'ERROR: Passwords differ or password too short'; exit 1; }
 unset confirm
-hash=$(printf '%s' "$password" | caddy hash-password)
+# Caddy 2.6.2 prompts twice when --plaintext is omitted; feed both lines via stdin.
+# Never place the password on the command line or write it to disk.
+hash=$(printf '%s\n%s\n' "$password" "$password" | caddy hash-password)
 unset password
 [[ "$hash" =~ ^\$2[aby]\$ ]] || { echo 'ERROR: Unexpected Caddy password hash'; exit 1; }
 
